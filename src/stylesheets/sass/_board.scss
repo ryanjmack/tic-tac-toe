@@ -1,0 +1,49 @@
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  width: 24em;
+
+  div {
+    border-right: 5px solid $board;
+    border-bottom: 5px solid $board;
+    flex: 1 1 33.333333%;
+    height: calc(100vw / 3);
+    max-height: 8em;
+
+    // every third div
+    &:nth-of-type(3n) {
+      border-right: none;
+    }
+
+    // target divs 7-9
+    &:nth-of-type(n + 7) {
+      border-bottom: none;
+    }
+
+    i {
+      align-items: center;
+      color: #333;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .fa-times {
+      font-size: 4.5em;
+
+      @media (min-width: 22em) {
+        font-size: 6em;
+      }
+    }
+
+    .fa-circle-o {
+      font-size: 3.75em;
+
+      @media (min-width: 22em) {
+        font-size: 5em;
+      }
+    }
+  }
+}
