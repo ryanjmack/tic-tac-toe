@@ -30,7 +30,7 @@ Board.prototype.makeMove = function(index, player) {
     return false;
   }
   else {
-    this.board[index] = team;
+    this.board[index] = player;
     return true;
   }
 }
