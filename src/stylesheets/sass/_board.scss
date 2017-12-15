@@ -1,48 +1,55 @@
 .board {
+  background-color: $primary-dark;
   display: flex;
   flex-wrap: wrap;
+  font-size: 1rem;
+  justify-content: center;
   max-width: 100%;
-  width: 24em;
+  width: 19em;
 
-  div {
-    border-right: 5px solid $board;
-    border-bottom: 5px solid $board;
-    flex: 1 1 33.333333%;
-    height: calc(100vw / 3);
-    max-height: 8em;
+  @media (min-width: 30em) {
+    font-size: 1.2rem;
+  }
 
-    // every third div
-    &:nth-of-type(3n) {
-      border-right: none;
+  @media (min-width: 50em) {
+    font-size: 1.3rem;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    padding: 0.25em 0;
+    width: 19em;
+
+    &:first-of-type {
+      padding-top: 0;
     }
 
-    // target divs 7-9
-    &:nth-of-type(n + 7) {
-      border-bottom: none;
+    &:last-of-type {
+      padding-bottom: 0;
     }
 
-    i {
-      align-items: center;
-      color: #333;
-      display: flex;
-      height: 100%;
-      justify-content: center;
-      width: 100%;
-    }
+    div {
+      background-color: $primary;
+      width: 6em;
+      height: 6em;
 
-    .fa-times {
-      font-size: 4.5em;
-
-      @media (min-width: 22em) {
+      i {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
         font-size: 6em;
+        width: 100%;
       }
-    }
 
-    .fa-circle-o {
-      font-size: 3.75em;
-
-      @media (min-width: 22em) {
+      .fa-circle-o {
         font-size: 5em;
+      }
+
+      .fa-times {
+        font-size: 5.5em;
       }
     }
   }

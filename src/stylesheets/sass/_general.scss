@@ -1,5 +1,5 @@
-$primary: #FFB732;
-$board: darken($primary, 20%);
+$primary: #26c1b4;
+$primary-dark: darken($primary, 20%);;
 
 html {
   box-sizing: border-box;
@@ -8,7 +8,9 @@ html {
   width: 100vw;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
