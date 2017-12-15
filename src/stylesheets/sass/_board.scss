@@ -5,7 +5,7 @@
   font-size: 1rem;
   justify-content: center;
   max-width: 100%;
-  width: 19em;
+  width: $board-width;
 
   @media (min-width: 30em) {
     font-size: 1.2rem;
@@ -20,7 +20,7 @@
     justify-content: space-between;
     max-width: 100%;
     padding: 0.25em 0;
-    width: 19em;
+    width: $board-width;
 
     &:first-of-type {
       padding-top: 0;
