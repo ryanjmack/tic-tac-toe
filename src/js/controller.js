@@ -1,6 +1,7 @@
 let game = new Board();
 let isFirstMove = true;
 let playerTeam = 'x';
+let aiTeam = 'o';
 
 // Team selection elements
 const teamX = document.querySelector('.x p');
@@ -9,6 +10,10 @@ const teamO = document.querySelector('.o p');
 
 // gets called when the board is clicked
 function handleBoardClick(e) {
+
+  if (isFirstMove) {
+    isFirstMove = false;
+  }
 
   const target = e.target.dataset.index;
   if (!target) { // target doesn't have a data-index attribute
@@ -23,7 +28,7 @@ function handleBoardClick(e) {
   // move was sucessful
   updateBoardView();
 
-  // getGameState returns false for unifnished games
+  // getGameState returns false for unfinished games
   const state = game.getGameState();
   if (state) {
     if (state === 'x') {
@@ -36,6 +41,9 @@ function handleBoardClick(e) {
       console.log('draw');
     }
   }
+
+  game.aiMakeMove(aiTeam);
+  window.setTimeout(updateBoardView, 250);
 }
 
 
@@ -45,8 +53,9 @@ function handleButtonClick(e) {
 
   if (restartConfirmed) {
     game = new Board();
-    isFirstMove = false;
+    isFirstMove = true;
     playerTeam = 'x';
+    aiTeam = 'o';
     teamX.classList.add('active-team');
     teamO.classList.remove('active-team');
     updateBoardView();
@@ -56,9 +65,13 @@ function handleButtonClick(e) {
 
 function handleTeamSelection() {
   if (isFirstMove) {
+    isFirstMove = false;
     teamX.classList.remove('active-team');
     teamO.classList.add('active-team');
     playerTeam = 'o';
+    aiTeam = 'x';
+    game.aiMakeMove(aiTeam);
+    updateBoardView();
   }
 }
 

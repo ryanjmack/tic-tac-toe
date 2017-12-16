@@ -35,6 +35,12 @@ Board.prototype.makeMove = function(index, player) {
   }
 }
 
+Board.prototype.aiMakeMove = function(team) {
+  const freeSpot = this.board.findIndex(val => val === null);
+
+  this.makeMove(freeSpot, team);
+}
+
 /***********************************************************************
 ** The following check(Diagonals|Rows|Columns) functions check if there
 ** is a winner. Returns the winner 'x' or 'o', or the boolean false
