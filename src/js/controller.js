@@ -1,3 +1,11 @@
+/***********************************************************************
+** Name: Ryan Mack
+** Date: 12/14/2017
+** Description: File for the controller (MVC) portion of a web based .
+** tic tac toe game
+***********************************************************************/
+
+// variables that save information about the game
 let game = new Board();
 let isFirstMove = true;
 let playerTeam = 'x';
@@ -6,6 +14,35 @@ let aiTeam = 'o';
 // Team selection elements
 const teamX = document.querySelector('.x p');
 const teamO = document.querySelector('.o p');
+
+
+/***********************************************************************
+** Gets called when there is a winner. Alerts the user of a winner and
+** resets game settings.
+***********************************************************************/
+function handleGameOver(state) {
+  // need a setTimeout so the board will render then alert the user
+  window.setTimeout(function() {
+    if (state === playerTeam) {
+      alert('Congratulations! You won!');
+    }
+    else if (state === aiTeam) {
+      alert('Sorry! The other team won!');
+    }
+    else {
+      alert('Close one! It was a draw!');
+    }
+
+    // reset the flags and data
+    game = new Board();
+    isFirstMove = true;
+    playerTeam = 'x';
+    aiTeam = 'o';
+    teamX.classList.add('active-team');
+    teamO.classList.remove('active-team');
+    updateBoardView();
+  }, 500);
+}
 
 
 // gets called when the board is clicked
@@ -29,21 +66,19 @@ function handleBoardClick(e) {
   updateBoardView();
 
   // getGameState returns false for unfinished games
-  const state = game.getGameState();
+  let state = game.getGameState();
   if (state) {
-    if (state === 'x') {
-      console.log('x won');
-    }
-    else if (state === 'o') {
-      console.log('o won');
-    }
-    else {
-      console.log('draw');
-    }
+    handleGameOver(state);
+    return;
   }
 
   game.aiMakeMove(aiTeam);
   window.setTimeout(updateBoardView, 250);
+  state = game.getGameState();
+  if (state) {
+    handleGameOver(state);
+    return;
+  }
 }
 
 
