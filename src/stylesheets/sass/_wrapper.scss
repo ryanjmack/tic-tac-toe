@@ -25,10 +25,11 @@
     justify-content: space-around;
 
     div {
-      width: 75%;
+      width: 50%;
 
       .x, .o {
-        width: 40%;
+        width: 15%;
+        max-width: 25%;
       }
     }
   }

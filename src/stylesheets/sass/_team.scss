@@ -1,8 +1,9 @@
 .team {
   display: flex;
   flex-wrap: wrap;
-  height: 5em;
+  //height: 5em;
   justify-content: space-between;
+  margin: 1.7em 0 1.2em;
   max-width: 100%;
   width: 30em;
 }
@@ -27,16 +28,15 @@
       box-shadow: -1px 1px 2px 0px $off-white;
       border: 1px solid $off-white;
       display: flex;
-      font-size: 1.2em;
-      justify-content: space-between;
+      font-size: 1.5em;
+      justify-content: center;
       margin: 0;
-      padding: 0.3em 1em;
-      text-align: center;
+      padding: 0.5em 1em;
     }
   }
 }
 
-// this will always override other styles 
+// this will always override other styles
 .active-team {
   border-bottom: 4px solid $primary !important;
 }
