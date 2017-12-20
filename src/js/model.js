@@ -8,6 +8,9 @@
 // Constructor function for Board
 function Board() {
   this.board = new Array(9).fill(null);
+  this.firstMove = true;
+  this.playerTeam = 'x';
+  this.aiTeam = 'o';
 }
 
 
@@ -25,21 +28,28 @@ Board.prototype.isFull = function() {
 
 // allows a team to make a move. If the spot is open allow the move and
 // return true. Else return false
-Board.prototype.makeMove = function(index, player) {
+Board.prototype.makeMove = function(index, team) {
   if (this.board[index] !== null) {
     return false;
   }
   else {
-    this.board[index] = player;
+    this.board[index] = team;
     return true;
   }
 }
 
-Board.prototype.aiMakeMove = function(team) {
+Board.prototype.aiMakeMove = function() {
   const freeSpot = this.board.findIndex(val => val === null);
 
-  this.makeMove(freeSpot, team);
+  this.makeMove(freeSpot, this.aiTeam);
 }
+
+Board.prototype.switchTeams = function () {
+  this.firstMove = false;
+  this.playerTeam = 'o';
+  this.aiTeam = 'x';
+};
+
 
 /***********************************************************************
 ** The following check(Diagonals|Rows|Columns) functions check if there

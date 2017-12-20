@@ -7,9 +7,6 @@
 
 // variables that save information about the game
 let game = new Board();
-let isFirstMove = true;
-let playerTeam = 'x';
-let aiTeam = 'o';
 
 // Team selection elements
 const teamX = document.querySelector('.x p');
@@ -23,21 +20,18 @@ const teamO = document.querySelector('.o p');
 function handleGameOver(state) {
   // need a setTimeout so the board will render then alert the user
   window.setTimeout(function() {
-    if (state === playerTeam) {
+    if (state === game.playerTeam) {
       alert('Congratulations! You won!');
     }
-    else if (state === aiTeam) {
+    else if (state === game.aiTeam) {
       alert('Sorry! The other team won!');
     }
     else {
       alert('Close one! It was a draw!');
     }
 
-    // reset the flags and data
+    //
     game = new Board();
-    isFirstMove = true;
-    playerTeam = 'x';
-    aiTeam = 'o';
     teamX.classList.add('active-team');
     teamO.classList.remove('active-team');
     updateBoardView();
@@ -48,8 +42,8 @@ function handleGameOver(state) {
 // gets called when the board is clicked
 function handleBoardClick(e) {
 
-  if (isFirstMove) {
-    isFirstMove = false;
+  if (game.firstMove) {
+    game.firstMove = false;
   }
 
   const target = e.target.dataset.index;
@@ -57,8 +51,7 @@ function handleBoardClick(e) {
     return;
   }
 
-  const isMoveSuccessful = game.makeMove(target, playerTeam);
-  if (isMoveSuccessful === false) { // spot taken
+  if (game.makeMove(target, game.playerTeam) === false) { // spot taken
     return;
   }
 
@@ -74,6 +67,7 @@ function handleBoardClick(e) {
 
   game.aiMakeMove(aiTeam);
   window.setTimeout(updateBoardView, 250);
+
   state = game.getGameState();
   if (state) {
     handleGameOver(state);
@@ -88,25 +82,25 @@ function handleButtonClick(e) {
 
   if (restartConfirmed) {
     game = new Board();
-    isFirstMove = true;
-    playerTeam = 'x';
-    aiTeam = 'o';
     teamX.classList.add('active-team');
     teamO.classList.remove('active-team');
     updateBoardView();
   }
 }
-
+let isFirstMove = true;
+let playerTeam = 'x';
+let aiTeam = 'o';
 
 function handleTeamSelection() {
-  if (isFirstMove) {
-    isFirstMove = false;
+  if (game.firstMove) {
+    game.switchTeams();
     teamX.classList.remove('active-team');
     teamO.classList.add('active-team');
-    playerTeam = 'o';
-    aiTeam = 'x';
-    game.aiMakeMove(aiTeam);
+    game.aiMakeMove();
     updateBoardView();
+  }
+  else {
+    return false;
   }
 }
 
