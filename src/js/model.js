@@ -21,8 +21,8 @@ Board.prototype.getBoardCopy = function() {
 
 
 // checks to see if the board isFull - returns a boolean
-Board.prototype.isFull = function() {
-  return this.board.filter(val => val === null).length === 0;
+Board.prototype.isFull = function(board = this.board) {
+  return this.board.indexOf(null) === -1;
 }
 
 
@@ -38,12 +38,14 @@ Board.prototype.makeMove = function(index, team) {
   }
 }
 
-Board.prototype.aiMakeMove = function() {
-  const freeSpot = this.board.findIndex(val => val === null);
 
-  this.makeMove(freeSpot, this.aiTeam);
+// calls makeMove method for AI
+Board.prototype.aiMakeMove = function() {
+  this.makeMove(aiFindBestMove(this.getBoardCopy()), this.aiTeam);
 }
 
+
+// when the player switches to 'o', the ai/'x' will make first move
 Board.prototype.switchTeams = function () {
   this.firstMove = false;
   this.playerTeam = 'o';
@@ -54,10 +56,12 @@ Board.prototype.switchTeams = function () {
 /***********************************************************************
 ** The following check(Diagonals|Rows|Columns) functions check if there
 ** is a winner. Returns the winner 'x' or 'o', or the boolean false
-** indicating no winner.
+** indicating no winner. Pass a default parameter. We want to be able
+** to pass in a 'look ahead' board in the evaluate function in the ai.js
+** file. So in essence the following functions are used for the
+** getGameState() and evaluate(board) functions.
 ***********************************************************************/
-Board.prototype.checkDiagonals = function() {
-  const board = this.getBoardCopy();
+Board.prototype.checkDiagonals = function(board = this.board) {
   const center = board[4];
 
   if (center && board[0] === center && board[8] === center
@@ -69,9 +73,7 @@ Board.prototype.checkDiagonals = function() {
 }
 
 
-Board.prototype.checkRows = function() {
-  const board = this.getBoardCopy();
-
+Board.prototype.checkRows = function(board = this.board) {
   if (board[0] && board[0] === board[1] && board[1] === board[2]) {
     return board[0]
   }
@@ -86,9 +88,7 @@ Board.prototype.checkRows = function() {
 }
 
 
-Board.prototype.checkColumns = function() {
-  const board = this.getBoardCopy();
-
+Board.prototype.checkColumns = function(board = this.board) {
   if (board[0] && board[0] === board[3] && board[3] === board[6]) {
     return board[0]
   }
