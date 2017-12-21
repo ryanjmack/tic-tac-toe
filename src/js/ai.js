@@ -41,7 +41,7 @@ function aiFindBestMove(board) {
       board[i] = game.aiTeam;
 
       // get the value of the move
-      const moveValue = minimax(board.slice(), 0, false);
+      const moveValue = minimax(board.slice(), 0, false, -Infinity, Infinity);
       if (moveValue > bestMove.value) {
         bestMove.value = moveValue;
         bestMove.index = i;
@@ -56,7 +56,7 @@ function aiFindBestMove(board) {
 
 // https://en.wikipedia.org/wiki/Minimax
 // https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/
-function minimax (board, depth, isMaximizer) {
+function minimax (board, depth, isMaximizer, alpha, beta) {
   // check to see if there is a terminal state
   const score = evaluate(board);
   if (score === 10) {
@@ -77,12 +77,18 @@ function minimax (board, depth, isMaximizer) {
         const boardCopy = board.slice();
         boardCopy[i] = game.aiTeam;
 
-        const value = minimax(boardCopy, depth + 1, !isMaximizer);
+        const value = minimax(boardCopy, depth + 1, !isMaximizer, alpha, beta);
         bestScore = Math.max(bestScore, value);
+        alpha     = Math.max(alpha, bestScore);
+
+        if (beta <= alpha) {
+          break;
+        }
       }
     }
     return bestScore;
   }
+
   else { // player turn
     let bestScore = Infinity;
 
@@ -91,8 +97,13 @@ function minimax (board, depth, isMaximizer) {
         const boardCopy = board.slice();
         boardCopy[i] = game.playerTeam;
 
-        const value = minimax(boardCopy, depth + 1, !isMaximizer);
+        const value = minimax(boardCopy, depth + 1, !isMaximizer, alpha, beta);
         bestScore = Math.min(bestScore, value);
+        beta      = Math.min(bestScore, beta);
+
+        if (beta <= alpha) {
+          break;
+        }
       }
     }
     return bestScore;
