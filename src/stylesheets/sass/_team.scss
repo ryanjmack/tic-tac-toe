@@ -1,11 +1,14 @@
 .team {
   display: flex;
   flex-wrap: wrap;
-  //height: 5em;
   justify-content: space-between;
   margin: 1.7em 0 1.2em;
   max-width: 100%;
   width: 30em;
+
+  @media (min-width: 30em) {
+    justify-content: space-around;
+  }
 }
 
 
