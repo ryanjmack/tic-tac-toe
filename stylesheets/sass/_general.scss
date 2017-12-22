@@ -9,12 +9,18 @@ html {
   color: $text;
   font: {
     family: 'Roboto', sans-serif;
-    size: 0.8rem;
+    size: 0.6rem;
   }
   height: 100vh;
   width: 100vw;
 
   @media (min-width: 21em) {
+    font-size: 0.7rem;
+  }
+  @media (min-width: 25em) {
+    font-size: 0.8rem;
+  }
+  @media (min-width: 30em) {
     font-size: 1rem;
   }
 }

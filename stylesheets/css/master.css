@@ -3,10 +3,16 @@ html {
           box-sizing: border-box;
   color: #333;
   font-family: 'Roboto', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   height: 100vh;
   width: 100vw; }
   @media (min-width: 21em) {
+    html {
+      font-size: 0.7rem; } }
+  @media (min-width: 25em) {
+    html {
+      font-size: 0.8rem; } }
+  @media (min-width: 30em) {
     html {
       font-size: 1rem; } }
 
@@ -39,6 +45,61 @@ body {
 h1 {
   font-size: 3em;
   margin: 0 0 0.5em; }
+
+.board {
+  background-color: #156c65;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-size: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 100%;
+  width: 19em; }
+  @media (min-width: 30em) {
+    .board {
+      font-size: 1.2rem; } }
+  @media (min-width: 50em) {
+    .board {
+      font-size: 1.3rem; } }
+  .board .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    max-width: 100%;
+    padding: 0.25em 0;
+    width: 19em; }
+    .board .row:first-of-type {
+      padding-top: 0; }
+    .board .row:last-of-type {
+      padding-bottom: 0; }
+    .board .row div {
+      background-color: #26c1b4;
+      width: 6em;
+      height: 6em; }
+      .board .row div i {
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 100%;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        font-size: 6em;
+        width: 100%; }
+      .board .row div .fa-circle-o {
+        font-size: 5em; }
+      .board .row div .fa-times {
+        font-size: 5.5em; }
 
 .wrapper {
   -webkit-box-align: center;
@@ -132,61 +193,6 @@ h1 {
 .active-team {
   border-bottom: 4px solid #26c1b4 !important; }
 
-.board {
-  background-color: #156c65;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  font-size: 1rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  max-width: 100%;
-  width: 19em; }
-  @media (min-width: 30em) {
-    .board {
-      font-size: 1.2rem; } }
-  @media (min-width: 50em) {
-    .board {
-      font-size: 1.3rem; } }
-  .board .row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    max-width: 100%;
-    padding: 0.25em 0;
-    width: 19em; }
-    .board .row:first-of-type {
-      padding-top: 0; }
-    .board .row:last-of-type {
-      padding-bottom: 0; }
-    .board .row div {
-      background-color: #26c1b4;
-      width: 6em;
-      height: 6em; }
-      .board .row div i {
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        height: 100%;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-        font-size: 6em;
-        width: 100%; }
-      .board .row div .fa-circle-o {
-        font-size: 5em; }
-      .board .row div .fa-times {
-        font-size: 5.5em; }
-
 .restart-button {
   background-color: white;
   border: none;
@@ -209,60 +215,5 @@ h1 {
   @media (min-width: 50em) {
     .restart-button {
       font-size: 1.3rem; } }
-
-.board {
-  background-color: #156c65;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  font-size: 1rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  max-width: 100%;
-  width: 19em; }
-  @media (min-width: 30em) {
-    .board {
-      font-size: 1.2rem; } }
-  @media (min-width: 50em) {
-    .board {
-      font-size: 1.3rem; } }
-  .board .row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    max-width: 100%;
-    padding: 0.25em 0;
-    width: 19em; }
-    .board .row:first-of-type {
-      padding-top: 0; }
-    .board .row:last-of-type {
-      padding-bottom: 0; }
-    .board .row div {
-      background-color: #26c1b4;
-      width: 6em;
-      height: 6em; }
-      .board .row div i {
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        height: 100%;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-        font-size: 6em;
-        width: 100%; }
-      .board .row div .fa-circle-o {
-        font-size: 5em; }
-      .board .row div .fa-times {
-        font-size: 5.5em; }
 
 /*# sourceMappingURL=master.css.map */
