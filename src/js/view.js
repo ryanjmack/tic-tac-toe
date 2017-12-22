@@ -1,12 +1,19 @@
+/***********************************************************************
+** Name: Ryan Mack
+** Date: 12/14/2017
+** Description: File for the view (MVC) portion of a web based tic
+** tac toe game
+***********************************************************************/
+// spots on the tic tac toe board. They have a dataset-index attribute
 const spots = [...document.querySelectorAll('[data-index]')];
 
 
 function updateBoardView() {
+  // get a copy of the board
   const board = game.getBoardCopy();
 
+  // iterate over the DOM elements, adding an icon for 'x' or 'o', if applicable
   spots.forEach(spot => {
-    // look at the dataset-index of the DOM element, look up the value in the
-    // board and update the innerHTML of the spot accordingly
     const value = board[spot.dataset.index]
 
 
