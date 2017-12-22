@@ -1,11 +1,12 @@
 html {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   color: #333;
   font-family: 'Roboto', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   height: 100vh;
-  width: 100vw; }
+  width: 100vw;
+  }
   @media (min-width: 21em) {
     html {
       font-size: 0.7rem; } }
@@ -14,7 +15,8 @@ html {
       font-size: 0.8rem; } }
   @media (min-width: 30em) {
     html {
-      font-size: 1rem; } }
+      /* font-size: 1rem; */
+      } }
 
 *,
 *:before,
@@ -24,23 +26,24 @@ html {
 
 body {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   height: 100%;
   margin: 0 auto;
-  max-width: 45em;
+  max-width: 100%;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%; }
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 45em;
+  }
 
 h1 {
   font-size: 3em;
@@ -129,13 +132,14 @@ h1 {
     border-left: 1px solid #bbb;
     border-right: 1px solid #bbb;
     -webkit-box-shadow: -1px 1px 1px #bbb;
-            box-shadow: -1px 1px 1px #bbb;
+    box-shadow: -1px 1px 1px #bbb;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -ms-flex-pack: distribute;
-        justify-content: space-around; }
+    justify-content: space-around;
+    }
     .wrapper__team div {
       width: 50%; }
       .wrapper__team div .x, .wrapper__team div .o {
@@ -217,3 +221,4 @@ h1 {
       font-size: 1.3rem; } }
 
 /*# sourceMappingURL=master.css.map */
+
