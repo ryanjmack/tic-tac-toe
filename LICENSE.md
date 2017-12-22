@@ -1,4 +1,4 @@
-# [frontend-project-template] License
+# Tic Tac Toe License
 
 ## MIT License
 

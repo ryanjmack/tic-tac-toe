@@ -1,74 +1,56 @@
-# frontend-project-template
+# Tic Tac Toe
 
-This is boilerplate code for simple front end projects.
+This is an unbeatable game of tic-tac-toe. The human player can either start the game by changing to the 'O' team (the AI will be 'X' and make a move) or simply making a move by clicking on a cell on the board.
 
 ## Getting Started
-* Clone this repository
-* Navigate to the the root of the cloned repo
-* Reference the original boilerplate using `git remote add upstream URL`. This allows you to pull changes made to the boilerplate code in the future using `git pull upstream master`
-* Initialize an empty repo on Github and change the remote's URL `git remote set-url origin git@github.com:USERNAME/REPOSITORY.git`
-* Use`npm install` to get all required node modules
-* Use `gulp` to run default task
-* Start coding
 
-## Basics
-The folder `src` is the development build.
-* /fonts
-* /images
-* /stylesheets
-    * css
-        * normalize.css
-        * master.css (output of scss compilation)
-        * master.css.map (sourcemap for devtools debugging)
-    * sass
-        * should have a master.scss file - used to import assets (e.g. a google fonts and scss partials)
-* index.html
-* favicon.ico
+Check out the [live demo](https://ryanjmack.github.io/tic-tac-toe/)!
 
-The folder `build` is the production build (minified/concatenated files etc)
+## Built With
 
-*The only tasks that need to be manually called are `gulp`, `build` and `cache:clear`*.
-
-The default task, `gulp`, will spin up a webserver on a local port that compiles scss to CSS, autoprefixes the CSS and also imports assets in that CSS file to reduce http requests. BrowserSync will watch for any changes to a file ending in .html, .scss and .js and will reload the page to reflect any changes. There will also be a link in dev tools to a sourcemap (this shows what scss file and what line of that file is responsible for the css rule in devtools).
-
-`cache:clear` will simply empty the cache that stores the optimized images for the build folder. Call this if the images in the build folder are not optimized to your liking.
-
-`build` as the name implies will optimize *all* assets for deployment on a server.
-
-**Important Note**
-
-Comments must be added to the head of the html in order for useref (concatenation/minification of multiple files of the same type) to work.
-
-**CSS**:
-
-<\!-- build:css css/master.min.css* -->
-
-*link to css files*
-
-<\!-- endbuild -->
-
-**JS**
-
-<\!-- build:js js/master.min.js defer -->
-
-*scripts*
-
-<\!-- endbuild -->
-
-async can be used in place of defer in the first comment above the scripts
+* HTML/SCSS
+* ES6 JavaScript
+* Gulp for automating tasks
+* Babel for converting ES6 to ES5
+* No JS or CSS libraries
 
 ----
 
-## Complete list of gulp tasks
-* `gulp` (default) - runs styles then serves a webpage to a local port that reloads on changes in the src directory
-* `gulp styles` - converts scss to css in `src/stylesheets` folder; also sets up sourcemaps for scss debugging
-* `gulp build` - takes all applicable files in src/ and optimizes them and sends them to the build/ directory
-* `gulp cache:clear` - clears cache (imagemin task caches images to prevent re-optimizing the same images over and over)
-* `gulp clean:build` - deletes all files in build/ directory
-* `gulp favicon` - pipes favicon to build folder
-* `gulp fonts` - pipes fonts to build
-* `gulp htmlmin` - minifies html
-* `gulp images` - optimizes images for build/
-* `gulp serve` - creates a webserver for browsersync which then watches for any html/scss changes
-* `gulp sass` - used when the default task is called. Watches for changes in any scss file in the src directory and recompiles the css and reloads the live browser. It also autoprefixes applicable css rules and also imports assets called in .scss files. For example import a google font and the cssimport will import that font reducing http requests.
-* `gulp useref` - concatenates files called in the head of the document in to single files of the same type (see note in the **Basics** section).
+## Objectives
+This project is one of the advanced front end projects for freeCodeCamp.
+
+The three user stories that must be fulfilled are:
+1. I can play a game of Tic Tac Toe with the computer.
+2. My game will reset as soon as it's over so I can play again.
+3. I can choose whether I want to play as X or O.
+
+
+My personal objectives for this project were:
+
+1. Use no JavaScript libraries or frameworks
+2. Structure my JS using MVC. Multiple files were used to maintain a separation of concerns.
+3. Use a constructor function and prototype methods to encapsulate data and associated methods.
+4. Make my tic tac toe game unbeatable using the minimax algorithm and optimizing the algorithm using alpha-beta pruning.
+5. Try to ensure my code is well commented and readable.
+6. Refrain from using any CSS/JS libraries or frameworks.
+
+---
+
+## Final Thoughts
+
+This project was pretty challenging but overall I had fun and it was a great learning experience!
+
+This project wasn't massive by any means but I iteratively keep getting better and better at approaching my work. While I planned out certain parts of my projects there were a couple of areas that I [unknowingly] neglected to address. I will continue to strive to fully understand the problem I am trying to solve and plan my work more thoroughly in the future.
+
+I also would like to learn more about design and architecture. While I separated my scss and JS in to multiple partial files, and adopted the MVC approach I feel like I can still improve in this area. Just like Haverbeke said in *Eloquent JavaScript*, "The art of programming is the skill of controlling
+complexity. The great program is subdued—made simple in its complexity."
+
+---
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/ryanjmack/tic-tac-toe/blob/master/LICENSE.md) file for details
+
+## Acknowledgments
+
+* I used Google's tic tac toe as inspiration for the design of my project
+* I would like to thank [GeeksforGeeks](https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/) for (in my opinion) having the best articles on the minimax algorithm
